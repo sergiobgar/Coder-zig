@@ -3,7 +3,6 @@ const debug = std.debug;
 
 
 pub fn coder() !void{
-
     debug.print("Introducca la cadena a codear:\n", .{});
     var string_coder: [std.mem.page_size]u8 = undefined;
     var stdout = std.io.getStdOut();
@@ -15,15 +14,11 @@ pub fn coder() !void{
         debug.print("{c}", .{code});
     }
     debug.print("\n", .{});
-
 }
 
-
 pub fn main () !void{
-    
     var menu: bool = true;
     while (menu){
-        //var status = try std.os.execveZ("/usr/bin/clear", undefined, undefined);
         var response: [std.mem.page_size]u8 = undefined;
         debug.print("------------------\n", .{});
         debug.print("Codificardor Cesar\n", .{});
@@ -38,10 +33,6 @@ pub fn main () !void{
             else => {
                 return ;
                 },
-        }
-        
-    }
-    
-    
-    
+        }   
+    }    
 }
