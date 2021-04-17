@@ -3,6 +3,7 @@ const debug = std.debug;
 
 
 pub fn coder() !u32{
+    var key_int: u8 = 0;
     const Key = enum {
         weak,
         mediun,
@@ -15,14 +16,14 @@ pub fn coder() !u32{
     var lenght_string = try std_out.read(string_coder[0..]);
     debug.print("Size => {}\n", .{string_coder[0..lenght_string].len});
     debug.print("------------------\n", .{});
-    debug.print("Key\tweak \n mediun \n strong \n => ", .{});
+    debug.print("Key:\n weak(w) \n mediun(m) \n strong(s) \n => ", .{});
     var length  = try std_out.read(key[0..]);
-    debug.print("key {}", .{key});
+    //debug.print("key {s}", .{key});
     debug.print("------------------\n", .{});
-    switch (key[0..length]) {
-         Key.weak   => key_int = 1,
-         Key.mediun => key_int = 2,
-         Key.strong => key_int = 3,
+    switch (key[0]) {
+        'w' => key_int = 1,  
+        'm' => key_int = 2,
+        's' => key_int = 3,
         else => {
             return 1;
         },
