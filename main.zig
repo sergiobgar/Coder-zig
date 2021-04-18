@@ -4,11 +4,6 @@ const debug = std.debug;
 
 pub fn coder() !u32{
     var key_int: u8 = 0;
-    const Key = enum {
-        weak,
-        mediun,
-        strong,
-    };
     var key: [std.mem.page_size]u8 = undefined;
     var string_coder: [std.mem.page_size]u8 = undefined;
     var std_out = std.io.getStdOut();
@@ -18,7 +13,6 @@ pub fn coder() !u32{
     debug.print("------------------\n", .{});
     debug.print("Key:\n weak(w) \n mediun(m) \n strong(s) \n => ", .{});
     var length  = try std_out.read(key[0..]);
-    //debug.print("key {s}", .{key});
     debug.print("------------------\n", .{});
     switch (key[0]) {
         'w' => key_int = 1,  
